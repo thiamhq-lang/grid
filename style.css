@@ -1,0 +1,148 @@
+/* Gemensamma grundstilar från den första menyn. */
+* { box-sizing: border-box; }
+body { color: #000; font-family: Arial, sans-serif; font-size: 16px; margin: 0; padding: 32px; background: #d5d6e0; line-height: 24px; }
+h1, h2, h3, p, ul { margin: 0; }
+h1 { font-size: 32px; line-height: 40px; }
+h2 { font-size: 24px; line-height: 28px; }
+ul { list-style: none; padding: 0; }
+.main-menu li strong { font-weight: 400; }
+a { color: inherit; }
+.tagline { font-weight: 400; }
+.description { font-size: 16px; line-height: 24px; }
+.menu-tip { font-size: 14px; line-height: 20px; }
+.copyright { margin-top: 16px; font-size: 12px; line-height: 16px; text-align: center; }
+.card { background: #fff; border-radius: 16px; padding: 24px; }
+.logo img { display: block; width: 100%; max-width: 190px; height: auto; }
+
+.menu-wrapper {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menu-middle {
+  display: flex;
+  gap: 16px;
+}
+
+.menu-middle > aside { flex-basis: 20%; min-width: 0; }
+.menu-middle > .main-menu { flex-grow: 1; min-width: 0; }
+
+.menu-wrapper > header { display: flex; align-items: center; gap: 32px; }
+.logo { flex-basis: 190px; flex-shrink: 0; min-width: 0; display: flex; align-items: center; justify-content: center; }
+
+.text {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  text-align: left;
+}
+.text h1 { margin-bottom: 8px; }
+
+.menu-wrapper > footer { display: flex; justify-content: space-between; gap: 16px; }
+.footer-copy { flex-basis: 20%; min-width: 0; }
+
+.footer-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  text-align: left;
+}
+.side-menu, .main-menu { display: flex; flex-direction: column; gap: 16px; }
+
+/* Nya menybilder: bara en grundregel så att de ryms i sidan.
+   Korvkortens utseende, Flexbox och Grid skriver du själv. */
+.dish-card img { display: block; max-width: 100%; height: auto; }
+
+/* Din uppgift: se README.md och Figma. Börja med HTML-strukturen. */
+
+/* Samma gruppering av kontaktuppgifterna som i den tidigare footern. */
+.contact-content { display: flex; flex-direction: column; gap: 16px; }
+
+.layout { 
+  display: grid; 
+grid-template-columns: 150px 1fr 150px; 
+grid-template-rows: 1fr 1fr fr1;
+gap: 16px;
+}
+
+
+header, 
+footer { 
+  grid-column: 1/ -1;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+ .dish-card.featured {
+    background: yellow;
+    grid-column: span 2;
+    grid-row:span 2;
+  }
+
+  .dish-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .dish-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  
+  }
+
+  .dish-heading { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+
+  }
+
+  .dish-name {
+
+  }
+
+  .dish-price {
+    
+  }
+
+  .dish-description {
+
+  }
+
+  .dish-card img {
+    flex-grow: 1;
+    object-fit: cover;
+  }
+
+@media (max-width: 500px) { 
+  .layout 
+   {
+    grid-template-columns: 1fr;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+
+  }
+}
+ 
+
+.dish-card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+  
