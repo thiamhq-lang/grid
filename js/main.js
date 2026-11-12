@@ -28,6 +28,17 @@
     back.addEventListener('click', () => track.scrollBy({ left: -step() }));
     forward.addEventListener('click', () => track.scrollBy({ left: step() }));
 
+    // Phones: tap the far left or far right of the slider to move one card
+    // (swiping still works as normal).
+    const phone = window.matchMedia('(max-width: 767px)');
+    track.addEventListener('click', (e) => {
+      if (!phone.matches) return;
+      const box = track.getBoundingClientRect();
+      const x = e.clientX - box.left;
+      if (x < box.width * 0.25) track.scrollBy({ left: -step() });
+      else if (x > box.width * 0.75) track.scrollBy({ left: step() });
+    });
+
     // Arrow keys work when the slider has focus.
     track.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowRight') { e.preventDefault(); track.scrollBy({ left: step() }); }

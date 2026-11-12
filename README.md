@@ -18,7 +18,7 @@ python3 -m http.server 8000
 
 - **Responsive 12 / 6-column grid.** 12 columns with 32px margins and gaps on desktop, 6 columns with 16px on phones (breakpoint at 768px).
 - **Design tokens from Figma.** The CSS custom properties in `css/styles.css` mirror the Figma variables (colours, type sizes, margins, gaps), so desktop and mobile switch the same way the `Breakpoint` mode does in Figma.
-- **Project slider.** Cards are 8 of 12 columns wide on desktop (4 of 6 on phones) and snap to the grid with CSS scroll snapping. On desktop the ← → buttons move one card at a time and turn grey when there's nowhere left to go, as described in the Figma annotations. On phones you swipe. Arrow keys work when the slider has focus.
+- **Project slider.** Cards are 8 of 12 columns wide on desktop (4 of 6 on phones) and snap to the grid with CSS scroll snapping. On desktop the ← → buttons move one card at a time and turn grey when there's nowhere left to go, as described in the Figma annotations. On phones you swipe, or tap the far left or far right of the slider to move one card. Arrow keys work when the slider has focus.
 - **Responsive images.** Every photo is served as WebP with a JPEG fallback in several widths (`<picture>` + `srcset` + `sizes`), so each device downloads only the size it needs. Images below the first screen are lazy-loaded, and every image has its width and height set to avoid layout jumps.
 - **Accessibility.** Semantic landmarks, skip link, visible keyboard focus, alt text, labelled buttons, and reduced motion respected.
 

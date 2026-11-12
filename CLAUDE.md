@@ -21,4 +21,6 @@ Portfolio homepage for Nabeela (digital design student, Yrgo). Plain HTML/CSS/JS
 - Grid placement uses `grid-column` with the same spans as the Figma components.
 - Images: put originals in `images/originals/`, run `python3 scripts/build-images.py`, use `<picture>` with WebP + JPEG `srcset`. Lazy-load anything below the first screen.
 - Slider controls: `#arrow_back` / `#arrow_forward`, one card per step, disabled at the ends, hidden on phones.
+  On phones, tapping the outer 25% left/right of the slider moves one card.
+- Live site: GitHub Pages from `main` (or `gh-pages`) at https://thiamhq-lang.github.io/grid/
 - Keep it accessible: alt text, labelled buttons, visible focus, respect `prefers-reduced-motion`.
