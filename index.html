@@ -1,145 +1,128 @@
 <!doctype html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flygande Korven – start med Flexbox</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nabeela — Digital Designer</title>
+  <meta name="description" content="Portfolio of Nabeela, a digital designer based in Gothenburg.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter:wght@700&display=swap">
+  <link rel="preload" as="image" href="images/lights-1200.webp" type="image/webp"
+        imagesrcset="images/lights-480.webp 480w, images/lights-960.webp 960w, images/lights-1200.webp 1200w"
+        imagesizes="(max-width: 767px) calc(100vw - 32px), calc(100vw - 64px)">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <div class="layout">
-    <header class="card">Sidhuvud</header>
-    <aside class="card">Extra</aside>
-    <main class="card">
-      <article class="dish-card">
-        <img src="assets/kokt.jpg" width="1536" height="1024" alt="Kokt korv i bröd med senap">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Kokt</h2></div>
-            <p class="dish-price">30 kr</p>
-          </div>
-          <p class="dish-description">Klassisk varmkorv med bröd och senap.</p>
-        </div>
-      </article>
-      <article class="dish-card featured">
-        <img src="assets/igelkotten.jpg" width="1536" height="1024" alt="Potatismos med grillade korvbitar som piggar">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Igelkotten</h2><span class="premium">Premium</span></div>
-            <p class="dish-price">85 kr</p>
-          </div>
-          <p class="dish-description">En rejäl hög potatismos med korvar som piggar.</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/ostbacon.jpg" width="1536" height="1024" alt="Korv i bröd med ost och bacon">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Ost- och baconkorv</h2></div>
-            <p class="dish-price">55 kr</p>
-          </div>
-          <p class="dish-description">Klassisk varmkorv med bröd och senap.</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/grillad.jpg" width="1536" height="1024" alt="Grillad korv i bröd med ketchup och senap">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Grillad</h2></div>
-            <p class="dish-price">35 kr</p>
-          </div>
-          <p class="dish-description">Grillad korv med bröd, ketchup och senap.</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/bratwurst.jpg" width="1536" height="1024" alt="Bratwurst i bröd med senap och surkål">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Bratwurst</h2></div>
-            <p class="dish-price">50 kr</p>
-          </div>
-          <p class="dish-description">Bratwurst med bröd, senap och surkål.</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/trippelkorv.jpg" width="1536" height="1024" alt="Tre korvar i ett bröd med ketchup och senap">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Trippelkorv</h2></div>
-            <p class="dish-price">65 kr</p>
-          </div>
-          <p class="dish-description">Tre grillade korvar i ett bröd med ketchup och senap</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/bratwurst.jpg" width="1536" height="1024" alt="Korv i bröd med senap, samma referensbild som Bratwurst">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Chorizo</h2></div>
-            <p class="dish-price">50 kr</p>
-          </div>
-          <p class="dish-description">Kryddig chorizo med bröd, senap och picklad rödlök.</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/vegokorv.jpg" width="1536" height="1024" alt="Vegokorv i bröd med gurkmajonnäs">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Vegokorv</h2></div>
-            <p class="dish-price">40 kr</p>
-          </div>
-          <p class="dish-description">Vegetarisk korv med bröd och gurkmajonnäs.</p>
-        </div>
-      </article>
-      <article class="dish-card">
-        <img src="assets/halvspecial.jpg" width="1536" height="1024" alt="Korv i bröd med mos och räksallad">
-        <div class="dish-copy">
-          <div class="dish-heading">
-            <div class="dish-label"><h2 class="dish-name">Halvspecial</h2></div>
-            <p class="dish-price">65 kr</p>
-          </div>
-          <p class="dish-description">Korv i bröd med mos och räksallad.</p>
-        </div>
-      </article>
-  </main>
-    <aside class="card">Dryck</aside>
-    <footer class="card">Sidfot</footer>
-  </div>
-<div class="menu-wrapper">
-  <header class="card menu-header">
-    <div class="logo"><img src="assets/flygande-korven-logo.png" width="338" height="149" alt="Flygande Korven"></div>
-    <div class="text">
-      <h1>Flygande Korven i Torslanda</h1>
-      <div class="intro-lines"><p>Varmkorv och tillbehör sedan 1973</p><p>Vi serverar klassisk varmkorv med tydliga val och fasta priser.</p></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navigation -->
+  <header class="section" id="top">
+    <nav class="nav" aria-label="Main">
+      <a class="sub" href="#top">Nabeela</a>
+      <div class="links link-s">
+        <a href="#about">About</a>
+        <a href="#work">Case Studies</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+    </nav>
+    <div class="mobile-menu link-s" id="mobile-menu" hidden>
+      <a href="#about">About</a>
+      <a href="#work">Case Studies</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
-  <!-- Nästa steg: flytta upp de tre panelerna och ta bort denna wrapper. -->
-  <div class="menu-middle">
-  <aside class="card side-menu" aria-labelledby="extra-heading">
-    <h2 id="extra-heading">Extra</h2>
-    <ul><li>Extra bröd – 5 kr</li><li>Potatismos – 20 kr</li><li>Räksallad – 15 kr</li><li>Rostad lök – 5 kr</li></ul>
-  </aside>
-  <main class="card main-menu" aria-label="Korvmeny">
-    
-  </main>
-  <aside class="card side-menu" aria-labelledby="drink-heading">
-    <h2 id="drink-heading">Dryck</h2>
-    <ul><li>Vatten – 15 kr</li><li>Pucko – 25 kr</li><li>Kaffe – 20 kr</li><li>Festis – 15 kr</li></ul>
-  </aside>
-  </div>
-  <footer class="card menu-footer">
-    <div class="footer-copy">
-      <h2>Öppet</h2>
-      <ul><li>mån–fre 10–22</li><li>lör 12–24</li><li>sön 12–20</li></ul>
-    </div>
-    <div class="logo"><img src="assets/flygande-korven-logo.png" width="338" height="149" alt="Flygande Korven"></div>
-    <div class="footer-copy contact">
-      <div class="contact-content">
-      <h2>Kontakt</h2>
-      <ul><li>Korvvägen 1</li><li>Torslanda</li><li><a href="tel:031987654">Ring: 031-987 654</a></li></ul>
+
+  <main id="main">
+    <!-- Title Section -->
+    <section class="section title grid">
+      <h1 class="heading">Digital Designer based in Gothenburg</h1>
+    </section>
+
+    <!-- Text Section -->
+    <section class="section text grid" id="work">
+      <h2 class="sub">Selected work</h2>
+      <p class="muted">I design clear, considered digital experiences. Below is a selection of my work.</p>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="section gallery grid" aria-label="Project gallery">
+      <div class="media r-16-9 wide">
+        <picture>
+          <source type="image/webp" srcset="images/lights-480.webp 480w, images/lights-960.webp 960w, images/lights-1200.webp 1200w" sizes="(max-width: 767px) calc(100vw - 32px), calc(100vw - 64px)">
+          <img src="images/lights-1200.jpg" srcset="images/lights-480.jpg 480w, images/lights-960.jpg 960w, images/lights-1200.jpg 1200w" sizes="(max-width: 767px) calc(100vw - 32px), calc(100vw - 64px)" width="1200" height="675" fetchpriority="high" decoding="async" alt="Project 1: blurred city lights at night (placeholder image)">
+        </picture>
       </div>
-    </div>
+      <div class="media r-4-5 half-a">
+        <picture>
+          <source type="image/webp" srcset="images/stump-480.webp 480w, images/stump-960.webp 960w" sizes="(max-width: 767px) 60vw, 48vw">
+          <img src="images/stump-960.jpg" srcset="images/stump-480.jpg 480w, images/stump-960.jpg 960w" sizes="(max-width: 767px) 60vw, 48vw" width="960" height="1200" loading="lazy" decoding="async" alt="Project 2: close-up of a tree stump (placeholder image)">
+        </picture>
+      </div>
+      <div class="media r-5-4 half-b">
+        <picture>
+          <source type="image/webp" srcset="images/forest-road-480.webp 480w, images/forest-road-960.webp 960w, images/forest-road-1200.webp 1200w" sizes="(max-width: 767px) 30vw, 48vw">
+          <img src="images/forest-road-960.jpg" srcset="images/forest-road-480.jpg 480w, images/forest-road-960.jpg 960w, images/forest-road-1200.jpg 1200w" sizes="(max-width: 767px) 30vw, 48vw" width="1200" height="960" loading="lazy" decoding="async" alt="Project 3: a dirt road through a forest (placeholder image)">
+        </picture>
+      </div>
+    </section>
+
+    <!-- List Section -->
+    <section class="section list grid" id="experience">
+      <h2 class="sub">Skills &amp; experience</h2>
+      <div class="group g1"><p class="muted">Skills</p><ul><li>Skill 1</li><li>Skill 2</li><li>Skill 3</li></ul></div>
+      <div class="group g2"><p class="muted">Experience</p><ul><li>Role, Company</li><li>Role, Company</li></ul></div>
+      <div class="group g3"><p class="muted">Tools</p><ul><li>Tool 1</li><li>Tool 2</li><li>Tool 3</li><li>Tool 4</li></ul></div>
+      <div class="group g4"><p class="muted">Education</p><ul><li>School, Programme</li></ul></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about grid" id="about">
+      <div class="copy">
+        <h2 class="sub">About me</h2>
+        <p class="muted">A short introduction about you: how you work and what you care about. Replace this placeholder with your own words.</p>
+      </div>
+      <div class="media r-4-5 portrait" role="img" aria-label="Portrait placeholder"><span>Portrait</span></div>
+    </section>
+
+    <!-- Gallery Slider -->
+    <section class="section" aria-label="More projects">
+      <div class="slider-wrap">
+        <div class="slider" id="slider" tabindex="0" aria-label="Project slider. Use the arrow keys or scroll sideways.">
+          <div class="media r-4-5">
+            <picture>
+              <source type="image/webp" srcset="images/misty-forest-480.webp 480w, images/misty-forest-960.webp 960w" sizes="(max-width: 767px) 60vw, 63vw">
+              <img src="images/misty-forest-960.jpg" srcset="images/misty-forest-480.jpg 480w, images/misty-forest-960.jpg 960w" sizes="(max-width: 767px) 60vw, 63vw" width="960" height="1200" loading="lazy" decoding="async" alt="Slide 1: a misty forest path (placeholder image)">
+            </picture>
+          </div>
+          <div class="media r-4-5">
+            <picture>
+              <source type="image/webp" srcset="images/bench-480.webp 480w, images/bench-960.webp 960w" sizes="(max-width: 767px) 60vw, 63vw">
+              <img src="images/bench-960.jpg" srcset="images/bench-480.jpg 480w, images/bench-960.jpg 960w" sizes="(max-width: 767px) 60vw, 63vw" width="960" height="1200" loading="lazy" decoding="async" alt="Slide 2: two people on a bench facing the Golden Gate Bridge (placeholder image)">
+            </picture>
+          </div>
+          <div class="media r-4-5">
+            <picture>
+              <source type="image/webp" srcset="images/lights-480.webp 480w, images/lights-960.webp 960w, images/lights-1200.webp 1200w" sizes="(max-width: 767px) 60vw, 63vw">
+              <img src="images/lights-960.jpg" srcset="images/lights-480.jpg 480w, images/lights-960.jpg 960w, images/lights-1200.jpg 1200w" sizes="(max-width: 767px) 60vw, 63vw" width="1200" height="675" loading="lazy" decoding="async" alt="Slide 3: blurred city lights at night (placeholder image)">
+            </picture>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="arrow_back" type="button" aria-label="Previous slide" aria-controls="slider">←</button>
+          <button id="arrow_forward" type="button" aria-label="Next slide" aria-controls="slider">→</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Link Footer -->
+  <footer class="footer link-l" id="contact">
+    <a href="#work"><span>All cases</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="#experience"><span>My experience</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="#about"><span>Let’s work together</span><span class="arrow" aria-hidden="true">→</span></a>
   </footer>
-</div>
 </body>
 </html>

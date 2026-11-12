@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Nabeela — Portfolio
+   Built from the Figma file "Portfolio - Nabeela" (Ready design › Homepage).
+
+   The custom properties below mirror the Figma variables:
+     Color collection      → --bg, --fg, --fg-2, --line
+     Responsive collection → --cols, --margin, --gap, --gap-lg, --t-*
+   Desktop values are the defaults; the mobile breakpoint swaps them,
+   just like switching the Breakpoint mode in Figma.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* Color — background/primary, text/primary, text/secondary, border/primary */
+  --bg: #f6f4f0;
+  --fg: #111111;
+  --fg-2: rgba(17, 17, 17, 0.62);
+  --line: rgba(17, 17, 17, 0.18);
+  --placeholder: #d6d4cf;
+
+  /* Text styles (Inter stands in for Satoshi until it's self-hosted) */
+  --font-head: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Responsive — Breakpoint = desktop (design width 1440) */
+  --cols: 12;
+  --margin: 32px;   /* grid/margin */
+  --gap: 32px;      /* grid/gap */
+  --gap-lg: 80px;   /* grid/gap-lg */
+  --t-heading: clamp(64px, 8.89vw, 128px); /* type/heading: 128 at 1440 */
+  --t-sub: clamp(24px, 2.22vw, 32px);      /* type/subheading */
+  --t-body: clamp(18px, 1.67vw, 24px);     /* type/body */
+  --t-link-l: clamp(32px, 3.33vw, 48px);   /* type/link-l */
+  --t-link-s: clamp(18px, 1.67vw, 24px);   /* type/link-s */
+}
+
+/* Breakpoint = mobile (design width 375) */
+@media (max-width: 767px) {
+  :root {
+    --cols: 6;
+    --margin: 16px;
+    --gap: 16px;
+    --gap-lg: 40px;
+    --t-heading: min(60px, 16vw);
+    --t-sub: 24px;
+    --t-body: 20px;
+    --t-link-l: 32px;
+    --t-link-s: 20px;
+  }
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+h1, h2, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px;
+  background: var(--fg); color: var(--bg); padding: 8px 12px; z-index: 10;
+}
+.skip-link:focus { top: 16px; }
+
+/* ---------- Layout: section + 12/6-column grid ---------- */
+.section {
+  padding-block: var(--margin);
+  padding-left: max(var(--margin), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--margin), env(safe-area-inset-right, 0px));
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
+.grid > * { min-width: 0; }
+
+/* ---------- Text styles ---------- */
+.heading {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: var(--t-heading); line-height: 0.95; letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.sub {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: var(--t-sub); line-height: 1.2; letter-spacing: -0.01em;
+}
+.muted { color: var(--fg-2); }
+.link-s { font-size: var(--t-link-s); line-height: 1.4; }
+.link-l { font-size: var(--t-link-l); line-height: 1.1; }
+
+/* ---------- Navigation ---------- */
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.nav .links { display: flex; gap: 16px; }
+.menu-btn {
+  display: none; font: inherit; font-size: var(--t-link-s);
+  background: none; border: 0; padding: 0; color: var(--fg); cursor: pointer;
+}
+.mobile-menu { display: none; }
+@media (max-width: 767px) {
+  .nav .links { display: none; }
+  .menu-btn { display: block; }
+  .mobile-menu:not([hidden]) { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; }
+}
+
+/* ---------- Title Section + Text Section ---------- */
+.title h1 { grid-column: 1 / span 10; }
+.text h2 { grid-column: 1 / span 4; }
+.text p { grid-column: 5 / span 6; }
+@media (max-width: 767px) {
+  .title h1, .text h2, .text p { grid-column: 1 / -1; }
+}
+
+/* ---------- Media Card: image locked to a ratio ---------- */
+.media { position: relative; overflow: hidden; background: var(--placeholder); max-width: 100%; }
+.media picture, .media img { width: 100%; height: 100%; }
+.media img { object-fit: cover; }
+.r-16-9 { aspect-ratio: 16 / 9; }
+.r-4-5 { aspect-ratio: 4 / 5; }
+.r-5-4 { aspect-ratio: 5 / 4; }
+
+/* ---------- Gallery Grid ---------- */
+.gallery .wide { grid-column: 1 / -1; }
+.gallery .half-a { grid-column: 1 / span 6; }
+.gallery .half-b { grid-column: 7 / span 6; }
+@media (max-width: 767px) {
+  .gallery .half-a { grid-column: 1 / span 4; }
+  .gallery .half-b { grid-column: 5 / span 2; }
+}
+
+/* ---------- List Section (Skills & experience) ---------- */
+.list { row-gap: var(--gap-lg); }
+.list h2 { grid-column: 1 / span 4; grid-row: 1; }
+.list .g1 { grid-column: 5 / span 4; grid-row: 1; }
+.list .g2 { grid-column: 9 / span 4; grid-row: 1; }
+.list .g3 { grid-column: 5 / span 4; grid-row: 2; }
+.list .g4 { grid-column: 9 / span 4; grid-row: 2; }
+.group { display: flex; flex-direction: column; gap: 16px; }
+@media (max-width: 767px) {
+  .list h2 { grid-column: 1 / -1; }
+  .list .g1 { grid-column: 1 / span 3; grid-row: 2; }
+  .list .g2 { grid-column: 4 / span 3; grid-row: 2; }
+  .list .g3 { grid-column: 1 / span 3; grid-row: 3; }
+  .list .g4 { grid-column: 4 / span 3; grid-row: 3; }
+}
+
+/* ---------- About Section ---------- */
+.about .copy { grid-column: 1 / span 4; display: flex; flex-direction: column; gap: 32px; }
+.about .portrait { grid-column: 9 / span 4; }
+.portrait span { position: absolute; left: 16px; bottom: 12px; font-size: 14px; color: var(--fg-2); }
+@media (max-width: 767px) {
+  .about .portrait { grid-column: 1 / -1; grid-row: 1; }
+  .about .copy { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* ---------- Gallery Slider ----------
+   Cards are 8 of 12 columns (4 of 6 on phones), so about 1.5 cards show.
+   Scroll snapping keeps each card aligned to the grid. */
+.slider-wrap { display: flex; flex-direction: column; gap: var(--gap); }
+.slider {
+  --card: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols) * 8 + 7 * var(--gap));
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.slider::-webkit-scrollbar { display: none; }
+.slider .media { flex: 0 0 var(--card); scroll-snap-align: start; }
+
+/* Slider controls: active = black, inactive = grey; active arrows nudge on hover */
+.controls { display: flex; justify-content: space-between; align-items: center; }
+.controls button {
+  font: inherit; font-size: var(--t-link-l); line-height: 1.1;
+  background: none; border: 0; padding: 4px 0; color: var(--fg); cursor: pointer;
+}
+.controls button:disabled { opacity: 0.35; cursor: default; }
+@media (hover: hover) {
+  .controls button:not(:disabled):hover { opacity: 0.6; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .slider { scroll-behavior: smooth; }
+  .controls button { transition: transform 0.2s ease, opacity 0.2s ease; }
+  @media (hover: hover) {
+    #arrow_back:not(:disabled):hover { transform: translateX(-6px); }
+    #arrow_forward:not(:disabled):hover { transform: translateX(6px); }
+  }
+}
+@media (max-width: 767px) {
+  .slider { --card: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols) * 4 + 3 * var(--gap)); }
+  .controls { display: none; } /* phones: swipe */
+}
+
+/* ---------- Link Footer ---------- */
+.footer { border-top: 1px solid var(--line); }
+.footer a {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-block: var(--gap);
+  padding-left: max(var(--margin), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--margin), env(safe-area-inset-right, 0px));
+  border-bottom: 1px solid var(--line);
+}
+.footer a:hover { text-decoration: none; background: rgba(17, 17, 17, 0.04); }
+.footer .arrow { flex: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .footer .arrow { transition: transform 0.2s ease; }
+  .footer a:hover .arrow { transform: translateX(6px); }
+}
