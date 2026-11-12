@@ -138,13 +138,16 @@ ul { padding: 0; list-style: none; }
 .r-4-5 { aspect-ratio: 4 / 5; }
 .r-5-4 { aspect-ratio: 5 / 4; }
 
-/* ---------- Gallery Grid ---------- */
-.gallery .wide { grid-column: 1 / -1; }
-.gallery .half-a { grid-column: 1 / span 6; }
-.gallery .half-b { grid-column: 7 / span 6; }
+/* ---------- Gallery Grid ----------
+   Desktop: 16:9 across 8 columns with the 4:5 beside it (4 columns),
+   then the 5:4 below on the right (6 columns). */
+.gallery .wide { grid-column: 1 / span 8; grid-row: 1; }
+.gallery .half-a { grid-column: 9 / span 4; grid-row: 1; }
+.gallery .half-b { grid-column: 7 / span 6; grid-row: 2; }
 @media (max-width: 767px) {
-  .gallery .half-a { grid-column: 1 / span 4; }
-  .gallery .half-b { grid-column: 5 / span 2; }
+  .gallery .wide { grid-column: 1 / -1; grid-row: 1; }
+  .gallery .half-a { grid-column: 1 / span 4; grid-row: 2; }
+  .gallery .half-b { grid-column: 5 / span 2; grid-row: 2; }
 }
 
 /* ---------- List Section (Skills & experience) ---------- */
@@ -173,11 +176,11 @@ ul { padding: 0; list-style: none; }
 }
 
 /* ---------- Gallery Slider ----------
-   Cards are 8 of 12 columns (4 of 6 on phones), so about 1.5 cards show.
-   Scroll snapping keeps each card aligned to the grid. */
+   Cards are 5 of 12 columns (4 of 6 on phones), so about 2.5 cards show on
+   desktop and 1.5 on phones. Scroll snapping keeps each card on the grid. */
 .slider-wrap { display: flex; flex-direction: column; gap: var(--gap); }
 .slider {
-  --card: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols) * 8 + 7 * var(--gap));
+  --card: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols) * 5 + 4 * var(--gap));
   display: flex;
   gap: var(--gap);
   overflow-x: auto;
